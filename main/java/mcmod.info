@@ -1,0 +1,19 @@
+[
+{
+"modid": "Realistic Deaths",
+"name": "Realistic Deaths",
+"description": "Making deaths in Minecraft a little bit more realistic!",
+"version": "1.7.2-",
+"credits": "Created by Cyphereion",
+"logoFile": "/mods/Cyphereion/RealisticDeaths/Logo.png",
+"mcversion": "1.7.2",
+"url": "http://www.planetminecraft.com/mod/172-realistic-deaths/",
+"updateUrl": "",
+"authorList": [ "Developer: Cyphereion", "Textures: Elycin" ],
+"parent": "",
+"screenshots": [],
+"dependencies": [
+"mod_MinecraftForge"
+]
+}
+]

@@ -1,0 +1,164 @@
+V1.0.3
+=================
+Added in the following Blocks and Items{
+    XP Bottle
+    Slime Body
+    Magma Cube Body
+    Spider Body
+    Compressed Diamond Block
+}
+
+Added in the following structures{
+    I have added in the spawn structure for the first boss(Not yet named).
+}
+
+Patched the following things{
+    Using the carving knife on a block now has a 10% chance of dropping the head itself!
+    The Carving Knife now has descriptive text!
+    Removed the recipe for Soul Bottle. -Used for later boss ;3
+}
+
+Textured the following Items{
+    Raw Stomach
+    Raw Heart
+    Cooked Stomach
+    Cooked Heart
+}
+
+Added in the following Recipes{
+    Added in the recipe for Compressed Diamond. (9 Diamond Blocks)
+    Added in the inverse recipe for Compressed Diamond.
+}
+
+SPOILERS{
+    The XP Bottle is used to store/retrieve xp upon right click.
+    The XP Bottle can store a maximum of 50 levels.
+}
+
+V1.0.2 (A.K.A. The Censorship Update)
+=================
+Added in the following Blocks and Items{
+    Bat Body
+	Bat Wing
+	Batwing Soup
+	Batwing Boots
+	Soul Bottle (Empty)
+	Soul Bottle (Full)
+}
+
+Added in the following Functional changes{
+	PigHide armor has recieved an upgrade.
+	The "Jar Of Blood" can be crafted with a "Carving Knife" to get an enchanted "Carving Knife" with Carving Power I.
+}
+
+Added in the following Achievements{
+	Damage Denied
+}
+
+Removed the following Stuff{
+    Baby and everything associated with it.
+}
+
+SPOILERS{
+    If the carving knife was enchanted with a jar of blood then it gains a yellow name-tag!
+	Batwing Boots take fall damage from you and damages the boots (The damage is multiplied by 2). If the boots break and there is any remaining damage you will take it instead.
+	Damage Denied can be gained by taking fall damage while wearing Batwing Boots.
+	The soul bottle will prevent your death and put you at max health as long as it is in your inventory.
+	If the soul bottle prevents your death then you will lose all experience. (Hint hint for next update)
+	The soul bottle can be killed while killing any player while the bottle is in your inventory. (There is a 10% chance of this happening)
+}
+
+V1.0.1
+=================
+Added in the following Blocks and Items{
+    Creeper Body
+    Witch Body
+    Jar of Blood
+}
+Added in the following Functional patches{
+    Players now drop there heads which act like the mods heads now!
+    Added in texture-pack compatability with the heads!
+    Heads now deposit items directly into inventory! (They drop if your inventory is full ;D)
+}
+Added in the following Achievements{
+    Blood Thirsty
+}
+Added in the following Enchantments{
+     Lifesteal
+     Carving Power
+}
+Added in the following bug fixes{
+    Fixed bug with the dexter achievement not being fired.
+    Fixed some mobs not dropping there heads.
+    Added in ability to cook Lungs and Kidneys. (Forgot to do this last version :p)
+}
+SPOILERS!!{
+    Lifesteal works on anything.
+    Carving Power can be applied to anything but only worked on the Carving Knife.
+    You can get BloodThirsty by using a glass bottle on a player head.
+}
+
+V1.0.0 Release
+=================
+Added in the following Blocks and Items{
+    Cow Body
+    Pig Body
+    Chicken Body
+    Sheep Body
+    Cat Body
+    Villager Body
+    Zombie Body
+    Skeleton Body
+    Enderman Body
+    Carving Knife
+    Raw Brain
+    Cooked Brain
+    Raw Stomach
+    Cooked Stomach
+    Raw Heart
+    Cooked Heart
+    Cow Hide
+    Pig Hide
+    Tanned Pig Hide
+    Pighide Helmet
+    Pighide Chestplate
+    Pighide Pants
+    Pighide Boots
+    Lamb
+    Lambchops
+    Baby
+    Baby Head
+    Baby Body
+    Baby Leg
+    Baby Arm
+    Baby Foot
+    Baby Hand
+    Raw Lungs
+    Cooked Lungs
+    Raw Kidneys
+    Cooked Kidneys
+}
+
+Added in the following recipes{
+    Brain > CookedBrain
+    Heart > CookedHeart
+    Stomach > CookedStomach
+    CowHide > Leather
+    PigHide > TannedPigHide
+    Lamb > CookedLamb
+    Pighide Armor can be made out of Tanned Pig Hide.
+    Carving knife is a stick and an iron ingot in any order.
+}
+
+SPOILER ALERT!
+SPOILER ALERT!
+SPOILER ALERT!
+SPOILER ALERT!
+
+Added in the following achievements{
+    Dexter - Obtained by using the Carving Knife on a body.
+    Bad Parent - Obtained by right clicking while holding a Baby.
+    Intellegent - Obtained by eating a Raw Brain.
+    Dude - Obtained by eating a Baby head, body, leg, arm, etc...
+    Cutie - Obtained by using the Carving Knife on a Pig Body.
+}

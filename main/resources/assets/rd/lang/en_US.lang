@@ -1,0 +1,62 @@
+tile.rd_CowBody.name=Cow Body
+tile.rd_PigBody.name=Pig Body
+tile.rd_ChickenBody.name=Chicken Body
+tile.rd_SheepBody.name=Sheep Body
+tile.rd_CatBody.name=Cat Body
+tile.rd_VillagerBody.name=Villager Body
+tile.rd_ZombieBody.name=Zombie Body
+tile.rd_SkeletonBody.name=Skeleton Body
+tile.rd_EndermanBody.name=Enderman Body
+tile.rd_WitchBody.name=Witch Body
+tile.rd_CreeperBody.name=Creeper Body
+tile.rd_BatBody.name=Bat Body
+tile.rd_SlimeBody.name=Slime Body
+tile.rd_MagmaBody.name=Magma Body
+tile.rd_SpiderBody.name=Spider Body
+tile.rd_CompressedDiamond.name=Compressed Diamond Block
+
+item.rd_CookedStomach.name=Cooked Stomach
+item.rd_RawStomach.name=Raw Stomach
+item.rd_RawHeart.name=Raw Heart
+item.rd_CookedHeart.name=Cooked Heart
+item.rd_RawBrain.name=Raw Brain
+item.rd_CookedBrain.name=Cooked Brain
+item.rd_CarvingKnife.name=Carving Knife
+item.rd_Lamb.name=Lamb
+item.rd_CookedLamb.name=Lambchops
+item.rd_Lung.name=Raw Lungs
+item.rd_CookedLung.name=Cooked Lungs
+item.rd_Kidney.name=Raw Kidneys
+item.rd_CookedKidney.name=Cooked Kidneys
+item.rd_JarOfBlood.name=Jar of Blood
+item.rd_BatWing.name=Bat Wing
+item.rd_BatwingSoup.name=Batwing Soup
+item.rd_SoulBottle.name=Soul Bottle (Empty)
+item.rd_SoulBottleFull.name=Soul Bottle (Full)
+item.rd_XPBottle.name=XP Bottle
+
+item.rd_BatWingBoots.name=Batwing Boots
+item.rd_PigHideHelmet.name=Pighide Helmet
+item.rd_PigHideChestplate.name=Pighide Chestplate
+item.rd_PigHideLeggings.name=Pighide Pants
+item.rd_PigHideBoots.name=Pighide Boots
+
+item.rd_CowHide.name=Cow Hide
+item.rd_PigHide.name=Pig Hide
+item.rd_TannedPigHide.name=Tanned Pig Hide
+
+itemGroup.RealisticDeaths=Realistic Deaths
+
+enchantment.Lifesteal=Lifesteal
+enchantment.Suprise=Carving Power
+
+achievement.rd_002=Dexter
+achievement.rd_002.desc=Looks like a new Bay Harbor Butcher.
+achievement.rd_003=Intelligent
+achievement.rd_003.desc=1 Strength, 1 Stamina Leather Belt
+achievement.rd_005=Cutie
+achievement.rd_005.desc=How cute!
+achievement.rd_006=Blood Thirsty
+achievement.rd_006.desc=To drink the blood of your foes will only make you stronger.
+achievement.rd_007=Damage Denied
+achievement.rd_007.desc=I really hope these don't break...

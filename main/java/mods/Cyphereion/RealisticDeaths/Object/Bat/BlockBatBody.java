@@ -32,6 +32,10 @@ public class BlockBatBody extends BlockContainer{
 		return false;
 	}
 	
+    public int quantityDropped(Random p_149745_1_){
+        return 0;
+    }
+	
     public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
     	if(player.inventory.getCurrentItem() != null){

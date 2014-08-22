@@ -8,6 +8,7 @@ import mods.Cyphereion.RealisticDeaths.Object.EnchantmentManager;
 import mods.Cyphereion.RealisticDeaths.Object.EnumMobType;
 import mods.Cyphereion.RealisticDeaths.Object.ItemManager;
 import mods.Cyphereion.RealisticDeaths.Object.RecipeManager;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -16,6 +17,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
@@ -55,6 +57,13 @@ public class ModEventHandler {
 						RecipeManager.drop(player, ItemManager.soulBottleFull, 1);
 					}
 				}
+			}
+		}
+		
+		if(ent instanceof EntityBoss){
+			EntitySpider spider = new EntitySpider(world);
+			for(int i=0;i<rand.nextInt(12)+1;i++){
+				world.spawnEntityInWorld(spider);
 			}
 		}
 		

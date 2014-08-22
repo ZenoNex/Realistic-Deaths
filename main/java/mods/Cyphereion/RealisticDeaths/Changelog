@@ -1,3 +1,10 @@
+V1.0.4
+=================
+Added in the following Blocks and Items{
+    Player Head (Used to get your own head!)
+}
+
+
 V1.0.3
 =================
 Added in the following Blocks and Items{
@@ -13,6 +20,10 @@ Added in the following structures{
 }
 
 Patched the following things{
+    Added in the boss. (Not implemented yet, sorry! Maybe next update!)
+    Added in more drops for the With Head.
+    Nerfed the "rare" drop from player heads.
+    Fixed the heads dropping when you break them with a pickaxe.
     Using the carving knife on a block now has a 10% chance of dropping the head itself!
     The Carving Knife now has descriptive text!
     Removed the recipe for Soul Bottle. -Used for later boss ;3

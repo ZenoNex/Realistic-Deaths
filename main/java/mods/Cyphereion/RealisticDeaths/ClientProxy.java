@@ -2,6 +2,9 @@ package mods.Cyphereion.RealisticDeaths;
 
 import mods.Cyphereion.RealisticDeaths.Object.Bat.RenderBatBody;
 import mods.Cyphereion.RealisticDeaths.Object.Bat.TileEntityBatBody;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.ModelBoss;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.RenderBoss;
 import mods.Cyphereion.RealisticDeaths.Object.Cat.RenderCatBody;
 import mods.Cyphereion.RealisticDeaths.Object.Cat.TileEntityCatBody;
 import mods.Cyphereion.RealisticDeaths.Object.Chicken.RenderChickenBody;
@@ -31,6 +34,7 @@ import mods.Cyphereion.RealisticDeaths.Object.Witch.TileEntityWitchBody;
 import mods.Cyphereion.RealisticDeaths.Object.Zombie.RenderZombieBody;
 import mods.Cyphereion.RealisticDeaths.Object.Zombie.TileEntityZombieBody;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 
 public class ClientProxy extends CommonProxy{
@@ -51,5 +55,6 @@ public class ClientProxy extends CommonProxy{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySlimeBody.class, new RenderSlimeBody());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMagmaBody.class, new RenderMagmaBody());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySpiderBody.class, new RenderSpiderBody());
+		RenderingRegistry.registerEntityRenderingHandler(EntityBoss.class, new RenderBoss(new ModelBoss(), 1));
 	}
 }

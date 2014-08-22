@@ -7,6 +7,7 @@ import mods.Cyphereion.RealisticDeaths.Object.Item.CustomArmor;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemAchievement;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemCarvingKnife;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemXPBottle;
+import mods.Cyphereion.RealisticDeaths.Object.PlayerHead.ItemPlayerHead;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
@@ -46,7 +47,8 @@ public class ItemManager {
 	batWingBoots = new CustomArmor(armor_BatWing, 4, 3, "BatWing"),
 	soulBottle = new Item(),
 	soulBottleFull = new Item(),
-	xpBottle = new ItemXPBottle();
+	xpBottle = new ItemXPBottle(),
+	playerHead = new ItemPlayerHead();
 	
 	
 	public static ArrayList<String> ItemList = new ArrayList();
@@ -81,6 +83,7 @@ public class ItemManager {
 		registerItem(soulBottle, "SoulBottle");
 		registerItem(soulBottleFull, "SoulBottleFull");
 		registerItem(xpBottle, "XPBottle");
+		registerItem(playerHead, "PlayerHead");
 		
 		printItemList();
 	}

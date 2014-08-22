@@ -6,13 +6,12 @@ import mods.Cyphereion.RealisticDeaths.Object.BlockManager;
 import mods.Cyphereion.RealisticDeaths.Object.EnumMobType;
 import mods.Cyphereion.RealisticDeaths.Object.ItemManager;
 import mods.Cyphereion.RealisticDeaths.Object.RecipeManager;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -36,6 +35,10 @@ public class BlockZombieBody extends BlockContainer{
 		return false;
 	}
 	
+    public int quantityDropped(Random p_149745_1_){
+        return 0;
+    }
+	
 	public void onBlockAdded(World world, int x, int y, int z)
     {
         super.onBlockAdded(world, x, y, z);
@@ -45,6 +48,7 @@ public class BlockZombieBody extends BlockContainer{
         {
             if (!world.isRemote)
             {
+                /**
                 world.setBlockToAir(x, y, z);
                 world.setBlockToAir(x, y - 1, z);
                 world.setBlockToAir(x, y - 2, z);
@@ -53,12 +57,13 @@ public class BlockZombieBody extends BlockContainer{
                 world.setBlockToAir(x - 1, y - 1, z);
                 world.setBlockToAir(x + 1, y, z);
                 world.setBlockToAir(x - 1, y, z);
-                EntitySnowman entitysnowman = new EntitySnowman(world);
+                EntityBoss entitysnowman = new EntityBoss(world);
                 entitysnowman.setLocationAndAngles((double)x + 0.5D, (double)y - 1.95D, (double)z + 0.5D, 0.0F, 0.0F);
                 world.spawnEntityInWorld(entitysnowman);
                 world.notifyBlockChange(x, y, z, getBlockById(0));
                 world.notifyBlockChange(x, y - 1, z, getBlockById(0));
                 world.notifyBlockChange(x, y - 2, z, getBlockById(0));
+                **/
             }
 
             for (int i1 = 0; i1 < 120; ++i1)

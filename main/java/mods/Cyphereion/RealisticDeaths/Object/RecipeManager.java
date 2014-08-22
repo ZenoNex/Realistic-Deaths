@@ -70,6 +70,12 @@ public class RecipeManager extends GameRegistry{
 		
 		if(type == EnumMobType.Witch){
 			drop(player, Items.glass_bottle, rand.nextInt(12) * multiplier);
+			drop(player, Items.redstone, rand.nextInt(15) * multiplier);
+			drop(player, Items.glowstone_dust, rand.nextInt(5) * multiplier);
+			if(rand.nextInt(5) >= 3){
+				drop(player, Blocks.cauldron, rand.nextInt(2) * multiplier);
+				drop(player, Blocks.brewing_stand, rand.nextInt(1) * multiplier);
+			}
 		}
 		if(type==EnumMobType.Zombie){
 			drop(player, Items.rotten_flesh, rand.nextInt(12) * multiplier);
@@ -118,9 +124,9 @@ public class RecipeManager extends GameRegistry{
 				drop(player, Items.coal, rand.nextInt(14) * multiplier);
 				drop(player, Blocks.cobblestone, rand.nextInt(85) * multiplier);
 				if(rand.nextInt(100) <= 5){
-					drop(player, Items.diamond, rand.nextInt(54) * multiplier);
-					drop(player, Items.emerald, rand.nextInt(25) * multiplier);
-					drop(player, Items.iron_ingot, rand.nextInt(34) * multiplier);
+					drop(player, Items.diamond, rand.nextInt(12) * multiplier);
+					drop(player, Items.emerald, rand.nextInt(5) * multiplier);
+					drop(player, Items.iron_ingot, rand.nextInt(25) * multiplier);
 				}
 			}
 		}

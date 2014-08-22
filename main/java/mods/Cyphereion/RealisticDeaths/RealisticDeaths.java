@@ -5,6 +5,7 @@ import mods.Cyphereion.RealisticDeaths.Object.BlockManager;
 import mods.Cyphereion.RealisticDeaths.Object.EnchantmentManager;
 import mods.Cyphereion.RealisticDeaths.Object.ItemManager;
 import mods.Cyphereion.RealisticDeaths.Object.RecipeManager;
+import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +15,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -42,6 +44,7 @@ public class RealisticDeaths
     public void init(FMLInitializationEvent event){
     	RecipeManager.loadRecipes();
     	AchievementManager.loadAchievements();
+    	EntityRegistry.registerGlobalEntityID(EntityBoss.class, "rd_Boss", EntityRegistry.findGlobalUniqueEntityId());
     }
     
     @EventHandler

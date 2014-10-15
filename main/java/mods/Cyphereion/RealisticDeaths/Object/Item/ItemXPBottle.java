@@ -20,6 +20,11 @@ public class ItemXPBottle extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player){
 		NBTTagCompound tag = is.getTagCompound();
+		if(tag == null){
+			tag = new NBTTagCompound();
+			is.setTagCompound(tag);
+			tag = is.getTagCompound();
+		}
 		if(getLevels(is) == 0){
 			if(player.experienceLevel >= 50){
 				tag.setInteger("xp", 50);

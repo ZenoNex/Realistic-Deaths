@@ -35,13 +35,32 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ModEventHandler {
+	public static String[] supporterList = {"deadrecon98"};
+	
+	@SubscribeEvent
+	public void playerJoinEvent(EntityJoinWorldEvent e){
+		if(e.entity instanceof EntityPlayer){
+			EntityPlayer player = (EntityPlayer)e.entity;
+			for(int i=0;i<supporterList.length;i++){
+				if(supporterList[i].equals(player.getDisplayName())){
+					if(!player.worldObj.isRemote){
+						player.addStat(AchievementManager.supporter, 1);
+						RecipeManager.drop(player, ItemManager.supporter, 1);
+					}
+				}
+			}
+		}
+	}
+	
 	@SubscribeEvent
 	public void livingDeathEvent(LivingDeathEvent event){
 		Entity ent = event.entity;
@@ -52,9 +71,11 @@ public class ModEventHandler {
 			if(event.source.getEntity() != null){
 				if(event.source.getEntity() instanceof EntityPlayer){
 					EntityPlayer player = (EntityPlayer)event.source.getEntity();
-					if(player.inventory.hasItem(ItemManager.soulBottle)){
-						player.inventory.consumeInventoryItem(ItemManager.soulBottle);
-						RecipeManager.drop(player, ItemManager.soulBottleFull, 1);
+					if(player.inventory.getCurrentItem().hasEffect(EnchantmentManager.SoulTaker.effectId)){
+						if(player.inventory.hasItem(ItemManager.soulBottle)){
+							player.inventory.consumeInventoryItem(ItemManager.soulBottle);
+							RecipeManager.drop(player, ItemManager.soulBottleFull, 1);
+						}
 					}
 				}
 			}
@@ -151,9 +172,10 @@ public class ModEventHandler {
 						player.inventory.consumeInventoryItem(ItemManager.soulBottleFull);
 						e.ammount = 0;
 						player.heal(player.getMaxHealth());
+						player.getFoodStats().setFoodLevel(20);
 			        	ChatComponentText component = new ChatComponentText(EnumChatFormatting.GREEN + "" + EnumChatFormatting.BOLD + "Second Win!");
 			        	player.addChatComponentMessage(component);
-			        	player.addExperience((int)-player.experience);
+			        	player.addExperience((int)-player.experienceLevel);
 					}
 				}
 			}

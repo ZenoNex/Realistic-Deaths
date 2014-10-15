@@ -35,6 +35,7 @@ item.rd_SoulBottle.name=Soul Bottle (Empty)
 item.rd_SoulBottleFull.name=Soul Bottle (Full)
 item.rd_XPBottle.name=XP Bottle
 item.rd_PlayerHead.name=Player Head
+item.rd_Supporter.name=Supporter Item
 
 item.rd_BatWingBoots.name=Batwing Boots
 item.rd_PigHideHelmet.name=Pighide Helmet
@@ -61,3 +62,5 @@ achievement.rd_006=Blood Thirsty
 achievement.rd_006.desc=To drink the blood of your foes will only make you stronger.
 achievement.rd_007=Damage Denied
 achievement.rd_007.desc=I really hope these don't break...
+achievement.rd_008=Thanks!
+achievement.rd_008.desc=You have proven yourself as a worthy supporter of my mod!

@@ -1,7 +1,37 @@
+V1.0.5
+================
+Added in the following{
+    Non-supporters can no longer hold the supporter item!
+    Supporters now get the supporter item when they log in!
+}
+
+Added in the following to the Supporter item{
+    There is a cooldown of 50 seconds.
+    Only one supporter item will cooldown at a time.
+    On use this item gives 10 health, 5 saturation, and 5 absorption.
+    Added in a recipe for the supporter item.
+}
+
+Fixed the following{
+    Fixed a dupe bug with the xp bottle.
+}
+
+Added in the following Enchantments{
+    Soul Taker
+}
+
+All mob drops are now customized instead of running off of a completely random loop!
+
+
 V1.0.4
 =================
 Added in the following Blocks and Items{
     Player Head (Used to get your own head!)
+    Supporter Item (Currently Un-used)
+}
+
+Added in the following achievements{
+    Supporter (Read the pmc page for more information)
 }
 
 

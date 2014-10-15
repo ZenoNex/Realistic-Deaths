@@ -3,6 +3,7 @@ package mods.Cyphereion.RealisticDeaths.Object;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -33,6 +34,7 @@ public class RecipeManager extends GameRegistry{
 		addRecipe(new ItemStack(ItemManager.xpBottle, 1), " G ", "GXG", "GGG", Character.valueOf('G'), Blocks.glass, Character.valueOf('X'), Items.experience_bottle);
 		addRecipe(new ItemStack(ItemManager.batWingBoots, 1), "1 1", "1 1", "   ", '1', ItemManager.batWing);
 		addRecipe(new ItemStack(ItemManager.batWingBoots, 1), "   ", "1 1", "1 1", '1', ItemManager.batWing);
+		addRecipe(new ItemStack(ItemManager.supporter, 1), " s ", "sis", " s ", Character.valueOf('s'), Items.stick, Character.valueOf('i'), Items.iron_ingot);
 		
 		addShapelessRecipe(new ItemStack(Blocks.diamond_block, 9), BlockManager.CompressedDiamond);
 		addShapelessRecipe(new ItemStack(ItemManager.batWingSoup, 1), Items.mushroom_stew, ItemManager.batWing);
@@ -54,92 +56,149 @@ public class RecipeManager extends GameRegistry{
 	public static void doManditoryDrops(EntityPlayer player, EnumMobType type){
 		Random rand = new Random();
 		player.addStat(AchievementManager.dexter, 1);
+		int id = type.getIDFromType(type);
 		
 		int multiplier = 1;
+		
+		if(player.inventory.hasItem(ItemManager.supporter)){
+			multiplier += 1;
+		}
 		
 		if(EnchantmentHelper.getEnchantmentLevel(EnchantmentManager.Suprise.effectId, player.inventory.getCurrentItem()) > 0){
 			multiplier += EnchantmentHelper.getEnchantmentLevel(EnchantmentManager.Suprise.effectId, player.inventory.getCurrentItem());
 		}
 		
-		drop(player, ItemManager.Brain, rand.nextInt(2) + 1 * multiplier);
-		drop(player, ItemManager.Stomach, rand.nextInt(2) + 1 * multiplier);
-		drop(player, ItemManager.Heart, rand.nextInt(2) + 1 * multiplier);
-		drop(player, ItemManager.Lung, rand.nextInt(3) + 1 * multiplier);
-		drop(player, ItemManager.Kidney, rand.nextInt(3) + 1 * multiplier);
-		drop(player, Items.bone, rand.nextInt(10) + 1 * multiplier);
-		
-		if(type == EnumMobType.Witch){
-			drop(player, Items.glass_bottle, rand.nextInt(12) * multiplier);
-			drop(player, Items.redstone, rand.nextInt(15) * multiplier);
-			drop(player, Items.glowstone_dust, rand.nextInt(5) * multiplier);
-			if(rand.nextInt(5) >= 3){
-				drop(player, Blocks.cauldron, rand.nextInt(2) * multiplier);
-				drop(player, Blocks.brewing_stand, rand.nextInt(1) * multiplier);
-			}
-		}
-		if(type==EnumMobType.Zombie){
-			drop(player, Items.rotten_flesh, rand.nextInt(12) * multiplier);
-		}
-		if(type==EnumMobType.Villager){
-			if(rand.nextInt(100)<=5){
-				drop(player, Items.emerald, rand.nextInt(12) * multiplier);
-				drop(player, Items.diamond, rand.nextInt(12) * multiplier);
-			}
-		}
-		if(type==EnumMobType.Skeleton){
-			drop(player, Items.bone, rand.nextInt(12) * multiplier);
-		}
-		if(type==EnumMobType.Sheep){
-			drop(player, Blocks.wool, rand.nextInt(15) * multiplier);
-			drop(player, ItemManager.Lamb, rand.nextInt(12) * multiplier);
-		}
-		if(type==EnumMobType.Pig){
-			drop(player, Items.porkchop, rand.nextInt(6) * multiplier);
-			drop(player, ItemManager.PigHide, rand.nextInt(5) * multiplier);
-		}
-		if(type==EnumMobType.Enderman){
-			drop(player, Items.ender_eye, 2 * multiplier);
-			drop(player, Items.ender_pearl, rand.nextInt(3) * multiplier);
-		}
-		if(type==EnumMobType.Creeper){
-			drop(player, Items.gunpowder, rand.nextInt(12) * multiplier);
-		}
-		if(type==EnumMobType.Cow){
-			drop(player, Items.beef, rand.nextInt(10) * multiplier);
-			drop(player, ItemManager.CowHide, rand.nextInt(15) * multiplier);
-		}
-		if(type==EnumMobType.Chicken){
-			drop(player, Items.chicken, rand.nextInt(3) * multiplier);
-			drop(player, Items.feather, rand.nextInt(12) * multiplier);
-		}
-		if(type==EnumMobType.Cat){
-			drop(player, Items.fish, rand.nextInt(3) * multiplier);
-		}
-		if(type==EnumMobType.Slime){
-			drop(player, Items.slime_ball, rand.nextInt(15) * multiplier);
-		}
-		if(type==EnumMobType.Player){
+		switch(id){
+		default:
+			dropOrgans(player, 1, 1, 1, 2, 1, 7, multiplier);
+			System.err.println("Entity " + id + " has not been registered!");
+			break;
+		case 0:
+			drop(player, ItemManager.CowHide, rand.nextInt(5) + 1 * multiplier);
+			drop(player, Items.leather, rand.nextInt(2) + 1 * multiplier);
+			dropOrgans(player, 1, 1, 1, 2, 1, 7, multiplier);
+			break;
+		case 1:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, ItemManager.PigHide, rand.nextInt(3) + 1 * multiplier);
+			drop(player, Items.porkchop, rand.nextInt(4) + 1 * multiplier);
+			break;
+		case 2:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, ItemManager.Lamb, rand.nextInt(2) + 1 * multiplier);
+			drop(player, Blocks.wool, rand.nextInt(3) + 1 * multiplier);
+			break;
+		case 3:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.feather, rand.nextInt(4) + 1 * multiplier);
+			drop(player, Items.chicken, rand.nextInt(2) + 1 * multiplier);
+			break;
+		case 4:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.bone, rand.nextInt(5) + 1 * multiplier);
 			if(rand.nextInt(100) <= 5){
-				drop(player, Items.iron_ingot, rand.nextInt(7) * multiplier);
-				drop(player, Items.coal, rand.nextInt(14) * multiplier);
-				drop(player, Blocks.cobblestone, rand.nextInt(85) * multiplier);
-				if(rand.nextInt(100) <= 5){
-					drop(player, Items.diamond, rand.nextInt(12) * multiplier);
-					drop(player, Items.emerald, rand.nextInt(5) * multiplier);
-					drop(player, Items.iron_ingot, rand.nextInt(25) * multiplier);
+				drop(player, Items.iron_sword, 1);
+				ItemStack is = new ItemStack(Items.bow, 1);
+				if(multiplier > 0){
+					is.addEnchantment(Enchantment.flame, multiplier);
 				}
+				drop(player, is, 1);
 			}
+			break;
+		case 5:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.rotten_flesh, rand.nextInt(6) + 1 * multiplier);
+			break;
+		case 6:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.glass_bottle, rand.nextInt(4) + 1 * multiplier);
+			break;
+		case 7:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.gunpowder, rand.nextInt(4) + 1 * multiplier);
+			break;
+		case 8:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.ender_pearl, rand.nextInt(1) + 1 * multiplier);
+			break;
+		case 9:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.iron_ingot, rand.nextInt(3) + 1 * multiplier);
+			if(rand.nextInt(100) <= 10){
+				drop(player, Items.iron_ingot, rand.nextInt(25) + 1 * multiplier);
+				drop(player, Items.gold_nugget, rand.nextInt(25) + 1 * multiplier);
+				if(rand.nextInt(10) == 1){
+					drop(player, Items.emerald, rand.nextInt(25) + 1 * multiplier);
+					drop(player, Items.diamond, rand.nextInt(25) + 1 * multiplier);
+				}
+			} 
+			break;
+		case 10:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.fish, rand.nextInt(3) + 1 * multiplier);
+			break;
+		case 11:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Blocks.cobblestone, rand.nextInt(64) + 1 * multiplier);
+			int random = rand.nextInt(500) + 1;
+			if(random >= 500){
+				drop(player, Items.diamond_helmet, 1 * multiplier);
+				drop(player, Items.diamond_chestplate, 1 * multiplier);
+				drop(player, Items.diamond_leggings, 1 * multiplier);
+				drop(player, Items.diamond_boots, 1 * multiplier);
+			}else if(random >= 400){
+				drop(player, Items.diamond, 3 * multiplier);
+			}else if(random >= 300){
+				drop(player, Items.gold_ingot, 15 * multiplier);
+			}else if(random >= 200){
+				drop(player, Items.iron_ingot, 5 * multiplier);
+			}else if(random >= 100){
+				drop(player, Items.apple, rand.nextInt(35) + 1 * multiplier);
+			}else if(random >= 50){
+				drop(player, Blocks.dirt, rand.nextInt(125) + 1 * multiplier);
+			}
+			else{
+				drop(player, Blocks.log, rand.nextInt(16) + 1 * multiplier);
+			}
+			break;
+		case 12:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, ItemManager.batWing, 2 * multiplier);
+			break;
+		case 13:
+			drop(player, Items.slime_ball, rand.nextInt(12) + 1 * multiplier);
+			break;
+		case 14:
+			drop(player, Items.magma_cream, rand.nextInt(2) + 1 * multiplier);
+			break;
+		case 15:
+			RecipeManager.dropOrgans(player, 1, 1, 1, 1, 1, 1, multiplier);
+			drop(player, Items.string, rand.nextInt(4) + 1 * multiplier);
+			break;
 		}
-		if(type==EnumMobType.Magma){
-			drop(player, Items.magma_cream, rand.nextInt(3) * multiplier);
-		}
-		if(type==EnumMobType.Bat){
-			drop(player, ItemManager.batWing, rand.nextInt(2) * multiplier);
-		}
-		if(type==EnumMobType.Spider){
-			drop(player, Items.string, rand.nextInt(12) * multiplier);
-		}
+		
 		player.inventoryContainer.detectAndSendChanges();
+	}
+	
+	/**
+	 * 
+	 * @param Player
+	 * @param Brain
+	 * @param Stomach
+	 * @param Heart
+	 * @param Lung
+	 * @param Kidney
+	 * @param Bone
+	 * @param Multiplier
+	 */
+	public static void dropOrgans(EntityPlayer player,int brain, int stomach, int heart, int lung, int kidney, int bone, int multiplier){
+		Random rand = new Random();
+		drop(player, ItemManager.Brain, rand.nextInt(brain) + 1 * multiplier);
+		drop(player, ItemManager.Stomach, rand.nextInt(stomach) + 1 * multiplier);
+		drop(player, ItemManager.Heart, rand.nextInt(heart) + 1 * multiplier);
+		drop(player, ItemManager.Lung, rand.nextInt(lung) + 1 * multiplier);
+		drop(player, ItemManager.Kidney, rand.nextInt(kidney) + 1 * multiplier);
+		drop(player, Items.bone, rand.nextInt(bone) + 1 * multiplier);
 	}
 	
 	public static void drop(EntityPlayer player, Item i, int rand, int meta){
@@ -149,6 +208,15 @@ public class RecipeManager extends GameRegistry{
 			player.inventory.addItemStackToInventory(new ItemStack(i, rand, meta));
 		}
 	}
+	
+	public static void drop(EntityPlayer player, ItemStack i, int rand){
+		if(player.inventory.getFirstEmptyStack() == -1){
+			player.entityDropItem(i, rand);
+		}else{
+			player.inventory.addItemStackToInventory(i);
+		}
+	}
+	
 	public static void drop(EntityPlayer player, Item i, int rand){
 		if(player.inventory.getFirstEmptyStack() == -1){
 			player.entityDropItem(new ItemStack(i, 1), rand);
@@ -156,6 +224,7 @@ public class RecipeManager extends GameRegistry{
 			player.inventory.addItemStackToInventory(new ItemStack(i, rand));
 		}
 	}
+	
 	public static void drop(EntityPlayer player, Block i, int rand, int meta){
 		if(player.inventory.getFirstEmptyStack() == -1){
 			player.entityDropItem(new ItemStack(i, 1, meta), rand);
@@ -163,6 +232,7 @@ public class RecipeManager extends GameRegistry{
 			player.inventory.addItemStackToInventory(new ItemStack(i, rand, meta));
 		}
 	}
+	
 	public static void drop(EntityPlayer player, Block i, int rand){
 		if(player.inventory.getFirstEmptyStack() == -1){
 			player.entityDropItem(new ItemStack(i, 1), rand);

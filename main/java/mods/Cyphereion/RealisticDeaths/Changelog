@@ -3,6 +3,14 @@ V1.0.5
 Added in the following{
     Non-supporters can no longer hold the supporter item!
     Supporters now get the supporter item when they log in!
+    Added in blood effects when you cut up a head!
+}
+
+Soul Bottle{
+    When used it will spawn a particle effect around you.
+    Full Soul Bottle now has a max stack size is now 1.
+    Experience bottles now cost an extra 25 levels of experience in order to fill!
+    Your sword must now have the Soul Taker enchantment in order to fill a soul bottle!
 }
 
 Added in the following to the Supporter item{

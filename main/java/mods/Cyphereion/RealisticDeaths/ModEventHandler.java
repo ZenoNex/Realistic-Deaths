@@ -10,6 +10,7 @@ import mods.Cyphereion.RealisticDeaths.Object.ItemManager;
 import mods.Cyphereion.RealisticDeaths.Object.RecipeManager;
 import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -66,15 +67,16 @@ public class ModEventHandler {
 		Entity ent = event.entity;
 		World world = ent.worldObj;
 		Random rand = new Random();
-		
-		if(rand.nextInt(100) <= 10){
+		int random = rand.nextInt(100);
+		if(random <= 10){
 			if(event.source.getEntity() != null){
 				if(event.source.getEntity() instanceof EntityPlayer){
 					EntityPlayer player = (EntityPlayer)event.source.getEntity();
 					if(player.inventory.getCurrentItem().hasEffect(EnchantmentManager.SoulTaker.effectId)){
-						if(player.inventory.hasItem(ItemManager.soulBottle)){
+						if(player.inventory.hasItem(ItemManager.soulBottle) && player.experienceLevel >= 25){
 							player.inventory.consumeInventoryItem(ItemManager.soulBottle);
 							RecipeManager.drop(player, ItemManager.soulBottleFull, 1);
+							player.addExperienceLevel(-25);
 						}
 					}
 				}
@@ -176,6 +178,11 @@ public class ModEventHandler {
 			        	ChatComponentText component = new ChatComponentText(EnumChatFormatting.GREEN + "" + EnumChatFormatting.BOLD + "Second Win!");
 			        	player.addChatComponentMessage(component);
 			        	player.addExperience((int)-player.experienceLevel);
+			        	double x = player.posX, y = player.posY, z = player.posZ;
+			    		Random rand = new Random();
+			        	for(int i=0;i<50;i++){
+			    			Minecraft.getMinecraft().theWorld.spawnParticle("lava", x + 0.5D + rand.nextDouble(), y + 0.5D + rand.nextDouble(), z - 1 + 0.5D + rand.nextDouble(), 0, 0, 0);
+			    		}
 					}
 				}
 			}

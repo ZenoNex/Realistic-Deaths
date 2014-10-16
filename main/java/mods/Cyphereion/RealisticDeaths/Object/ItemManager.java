@@ -58,6 +58,8 @@ public class ItemManager {
 		CarvingKnife.setMaxStackSize(1);
 		CarvingKnife.setMaxDamage(3);
 		
+		soulBottleFull.setMaxStackSize(1);
+		
 		registerItem(CarvingKnife, "CarvingKnife");
 		registerItem(Brain, "RawBrain");
 		registerItem(CookedBrain, "CookedBrain");

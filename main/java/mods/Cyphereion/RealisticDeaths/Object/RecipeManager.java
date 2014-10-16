@@ -3,6 +3,7 @@ package mods.Cyphereion.RealisticDeaths.Object;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -58,8 +59,10 @@ public class RecipeManager extends GameRegistry{
 		player.addStat(AchievementManager.dexter, 1);
 		int id = type.getIDFromType(type);
 		
-		int multiplier = 1;
+		int x =Minecraft.getMinecraft().objectMouseOver.blockX, y = Minecraft.getMinecraft().objectMouseOver.blockY, z = Minecraft.getMinecraft().objectMouseOver.blockZ;
 		
+		int multiplier = 1;
+        
 		if(player.inventory.hasItem(ItemManager.supporter)){
 			multiplier += 1;
 		}
@@ -68,6 +71,9 @@ public class RecipeManager extends GameRegistry{
 			multiplier += EnchantmentHelper.getEnchantmentLevel(EnchantmentManager.Suprise.effectId, player.inventory.getCurrentItem());
 		}
 		
+		for(int i=0;i<50;i++){
+			Minecraft.getMinecraft().theWorld.spawnParticle("reddust", x + 0.5D + rand.nextDouble(), y + 0.5D + rand.nextDouble(), z - 1 + 0.5D + rand.nextDouble(), 0, 0, 0);
+		}
 		switch(id){
 		default:
 			dropOrgans(player, 1, 1, 1, 2, 1, 7, multiplier);

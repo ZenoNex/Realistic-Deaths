@@ -36,6 +36,7 @@ item.rd_SoulBottleFull.name=Soul Bottle (Full)
 item.rd_XPBottle.name=XP Bottle
 item.rd_PlayerHead.name=Player Head
 item.rd_Supporter.name=Supporter Item
+item.rd_GuideBook.name=Guide Book
 
 item.rd_BatWingBoots.name=Batwing Boots
 item.rd_PigHideHelmet.name=Pighide Helmet

@@ -17,9 +17,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,17 +26,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class RealisticDeaths
 {
     public static final String MODID = "Realistic Deaths";
-    public static final String VERSION = "1.0.5";
+    public static final String VERSION = "1.0.6";
     
     public static CreativeTabs tabRealisticDeaths = new CreativeTabsRD("RealisticDeaths");
     
     @SidedProxy(clientSide = "mods.Cyphereion.RealisticDeaths.ClientProxy", serverSide = "mods.Cyphereion.RealisticDeaths.CommonProxy")
 	public static CommonProxy proxy;
     
-    public static RealisticDeaths instance;
+    public static boolean isClient = FMLCommonHandler.instance().getSide() == Side.CLIENT ? true:false;
+    
+    @Mod.Instance(RealisticDeaths.MODID)
+    private static RealisticDeaths instance;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event){
+    	NetworkRegistry.INSTANCE.registerGuiHandler(this, this.proxy);
     	MinecraftForge.EVENT_BUS.register(new ModEventHandler());
     	BlockManager.loadBlocks();
     	ItemManager.loadItems();
@@ -56,6 +58,10 @@ public class RealisticDeaths
     public void postInit(FMLPostInitializationEvent event){
     	FMLCommonHandler.instance().bus().register(new TickHandler());
     	proxy.register();
+    }
+    
+    public static RealisticDeaths getInstance(){
+    	return instance;
     }
 }
 

@@ -1,5 +1,6 @@
 package mods.Cyphereion.RealisticDeaths;
 
+import mods.Cyphereion.RealisticDeaths.GUI.GuiGuideBook;
 import mods.Cyphereion.RealisticDeaths.Object.Bat.RenderBatBody;
 import mods.Cyphereion.RealisticDeaths.Object.Bat.TileEntityBatBody;
 import mods.Cyphereion.RealisticDeaths.Object.Boss.EntityBoss;
@@ -33,6 +34,8 @@ import mods.Cyphereion.RealisticDeaths.Object.Witch.RenderWitchBody;
 import mods.Cyphereion.RealisticDeaths.Object.Witch.TileEntityWitchBody;
 import mods.Cyphereion.RealisticDeaths.Object.Zombie.RenderZombieBody;
 import mods.Cyphereion.RealisticDeaths.Object.Zombie.TileEntityZombieBody;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -56,5 +59,19 @@ public class ClientProxy extends CommonProxy{
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityMagmaBody.class, new RenderMagmaBody());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntitySpiderBody.class, new RenderSpiderBody());
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoss.class, new RenderBoss(new ModelBoss(), 1));
+	}
+	
+	@Override
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z){
+		switch(ID){
+		case 0:
+			return new GuiGuideBook();
+		}
+		return null;
+	}
+	
+	@Override
+	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z){
+		return null;
 	}
 }

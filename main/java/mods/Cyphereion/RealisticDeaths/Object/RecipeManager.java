@@ -37,6 +37,7 @@ public class RecipeManager extends GameRegistry{
 		addRecipe(new ItemStack(ItemManager.batWingBoots, 1), "   ", "1 1", "1 1", '1', ItemManager.batWing);
 		addRecipe(new ItemStack(ItemManager.supporter, 1), " s ", "sis", " s ", Character.valueOf('s'), Items.stick, Character.valueOf('i'), Items.iron_ingot);
 		
+		addShapelessRecipe(new ItemStack(ItemManager.guideBook, 1), Items.dye, Items.book, new ItemStack(Items.dye, 1, 4), Items.feather);
 		addShapelessRecipe(new ItemStack(Blocks.diamond_block, 9), BlockManager.CompressedDiamond);
 		addShapelessRecipe(new ItemStack(ItemManager.batWingSoup, 1), Items.mushroom_stew, ItemManager.batWing);
 		

@@ -6,6 +6,7 @@ import mods.Cyphereion.RealisticDeaths.RealisticDeaths;
 import mods.Cyphereion.RealisticDeaths.Object.Item.CustomArmor;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemAchievement;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemCarvingKnife;
+import mods.Cyphereion.RealisticDeaths.Object.Item.ItemGuideBook;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemSupporter;
 import mods.Cyphereion.RealisticDeaths.Object.Item.ItemXPBottle;
 import mods.Cyphereion.RealisticDeaths.Object.PlayerHead.ItemPlayerHead;
@@ -50,7 +51,8 @@ public class ItemManager {
 	soulBottleFull = new Item(),
 	xpBottle = new ItemXPBottle().setMaxStackSize(1),
 	playerHead = new ItemPlayerHead(),
-	supporter = new ItemSupporter();
+	supporter = new ItemSupporter(),
+	guideBook = new ItemGuideBook();
 	
 	
 	public static ArrayList<String> ItemList = new ArrayList();
@@ -59,6 +61,7 @@ public class ItemManager {
 		CarvingKnife.setMaxDamage(3);
 		
 		soulBottleFull.setMaxStackSize(1);
+		guideBook.setMaxStackSize(1);
 		
 		registerItem(CarvingKnife, "CarvingKnife");
 		registerItem(Brain, "RawBrain");
@@ -89,6 +92,7 @@ public class ItemManager {
 		registerItem(xpBottle, "XPBottle");
 		registerItem(playerHead, "PlayerHead");
 		registerItem(supporter, "Supporter");
+		registerItem(guideBook, "GuideBook");
 		
 		printItemList();
 	}

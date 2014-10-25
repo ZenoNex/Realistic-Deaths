@@ -33,10 +33,10 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -51,11 +51,29 @@ public class ModEventHandler {
 	public void playerJoinEvent(EntityJoinWorldEvent e){
 		if(e.entity instanceof EntityPlayer){
 			EntityPlayer player = (EntityPlayer)e.entity;
-			for(int i=0;i<supporterList.length;i++){
-				if(supporterList[i].equals(player.getDisplayName())){
-					if(!player.worldObj.isRemote){
-						player.addStat(AchievementManager.supporter, 1);
-						RecipeManager.drop(player, ItemManager.supporter, 1);
+			NBTTagCompound tag = player.getEntityData();
+			if(tag != null){
+				if(tag.hasKey("firstLogin")){
+					if(!tag.getBoolean("firstLogin")){
+						tag.setBoolean("firstLogin", true);
+						RecipeManager.drop(player, ItemManager.guideBook, 1);
+						for(int i=0;i<supporterList.length;i++){
+							if(supporterList[i].equals(player.getDisplayName())){
+								if(!player.worldObj.isRemote){
+									RecipeManager.drop(player, ItemManager.supporter, 1);
+								}
+							}
+						}
+					}
+				}else{
+					tag.setBoolean("firstLogin", true);
+					RecipeManager.drop(player, ItemManager.guideBook, 1);
+					for(int i=0;i<supporterList.length;i++){
+						if(supporterList[i].equals(player.getDisplayName())){
+							if(!player.worldObj.isRemote){
+								RecipeManager.drop(player, ItemManager.supporter, 1);
+							}
+						}
 					}
 				}
 			}

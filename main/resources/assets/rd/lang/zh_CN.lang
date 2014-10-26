@@ -5,7 +5,7 @@ tile.rd_SheepBody.name=羊肉体
 tile.rd_CatBody.name=猫肉体
 tile.rd_VillagerBody.name=村民肉体
 tile.rd_ZombieBody.name=僵尸肉体
-tile.rd_SkeletonBody.name=骷髅肉体
+tile.rd_SkeletonBody.name=骷髅骨架
 tile.rd_EndermanBody.name=末影人肉体
 tile.rd_WitchBody.name=女巫肉体
 tile.rd_CreeperBody.name=爬行者肉体
@@ -36,7 +36,7 @@ item.rd_SoulBottleFull.name=灵魂瓶子 (满)
 item.rd_XPBottle.name=经验瓶
 item.rd_PlayerHead.name=玩家头颅
 item.rd_Supporter.name=赞助者的物品
-item.rd_GuideBook.name=指导手册
+item.rd_GuideBook.name=指南手册
 
 item.rd_BatWingBoots.name=蝠翼靴子
 item.rd_PigHideHelmet.name=猪皮头盔
